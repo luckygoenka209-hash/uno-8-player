@@ -1,6 +1,32 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UNO • 8 Player</title><link rel="stylesheet" href="style.css"></head>
 <body>
-UNO
-</body>
-</html>
+<div id="app">
+  <section id="home" class="panel">
+    <h1>UNO</h1><p>Online • Up to 8 Players</p>
+    <input id="name" maxlength="18" placeholder="Your name">
+    <button id="create">Create Room</button>
+    <div class="join"><input id="room" maxlength="5" placeholder="ROOM CODE"><button id="join">Join Room</button></div>
+    <div id="homeMsg"></div>
+  </section>
+  <section id="game" hidden>
+    <header><div><b>UNO</b> <span id="roomLabel"></span></div><div id="turnLabel"></div></header>
+    <main>
+      <aside><h3>Players</h3><div id="players"></div><button id="start">Start Game</button></aside>
+      <div class="table">
+        <div id="msg"></div><div class="piles">
+          <div id="deck" class="back">UNO</div><div id="top"></div>
+        </div>
+        <div id="color" class="color"></div>
+        <div id="hand" class="hand"></div>
+        <div class="actions"><button id="draw">Draw Card</button><button id="uno">UNO!</button></div>
+      </div>
+    </main>
+  </section>
+</div>
+<div id="modal" hidden><div class="modal"><h2>Choose color</h2><div class="choices">
+<button data-c="red">RED</button><button data-c="yellow">YELLOW</button><button data-c="green">GREEN</button><button data-c="blue">BLUE</button>
+</div></div></div>
+<script src="/socket.io/socket.io.js"></script><script src="app.js"></script>
+</body></html>
